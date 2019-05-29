@@ -1,27 +1,91 @@
-@import url(font-awesome.min.css);
-@import url("https://fonts.googleapis.com/css?family=Raleway:200,300,400,500,600");
-
-@-ms-viewport {
-    width: device-width;
-}
-
-@media screen and (max-width: 480px) {
-    html, body {
-        min-width: 320px;
-    }
-}
-html {
-    box-sizing: border-box;
-}
-
-*, *:before, *:after {
-    box-sizing: inherit;
-}
-
 body {
+    background: #696e9e;
+}
+  
+.sticker {
+    padding-top: 20px;
     background: #ffffff;
+    min-height: 100px;
+    min-width: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border: 1px solid #34b399;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+}
+  
+.sticker .bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    background: #34b399;
+    width: 100%;
+}
+  
+.sticker textarea {
+    padding: 3px 10px;
+    box-sizing: border-box;
+    min-height: 100px;
+    min-width: 100px;
+    background: transparent;
+    border: none;
+}
+  
+.sticker .bar:hover {
+    cursor: move;
+    background: #4bd0b5;
+}
+  
+.sticker:hover {
+    z-index: 1;
 }
 
-body.is-preload *, body.is-preload *:before, body.is-preload *:after  {
-    
+.deleteButton,
+.saveButton {
+    border: none;
+    position: absolute;
+    top: 2px;
+    height: 15px;
+    width: 15px;
+    cursor: pointer;
+}
+
+.deleteButton {
+    background: #ff0000;
+    right: 5px;
+    border-radius:  50%;
+}
+
+.saveButton {
+    background-color: #4b4b4b;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    left: 5px;
+}
+
+.addNoteBtn {
+	background-color:#34b39a;
+	-moz-border-radius:28px;
+	-webkit-border-radius:28px;
+	border-radius:28px;
+	border:1px solid #34b39a;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding: 6px auto;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #34b39a;
+}
+
+.addNoteBtn:hover {
+	background-color:#34b39a;
+}
+
+.addNoteBtn:active {
+	position:relative;
+	top:1px;
 }
