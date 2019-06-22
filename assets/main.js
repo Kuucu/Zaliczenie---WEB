@@ -57,13 +57,13 @@
     };
 
     getNoteObject = function (el) {
-        var textarea = el.querySelector('textarea');
+        var textarea = el.querySelector('textarea'); /* pobieranie textarea */
         return {
-            transformCSSValue: el.style.transform,
-            content: textarea.value,
-            id: el.id,
+            transformCSSValue: el.style.transform, /* pozycja notatki */
+            content: textarea.value, /* rzeczy które zapisujemy z notatki do localStorage */
+            id: el.id, /* id notatki */
             textarea: {
-                width: textarea.style.width,
+                width: textarea.style.width, /* wyskokość i szerokość pola notatki aby to też przywracało nam przy loadNotes*/
                 height: textarea.style.height,
             }
         };
@@ -73,7 +73,7 @@
         createNote();
     };
 
-    createNote = function (options) {
+    createNote = function (options) { /* funkcja ta wykowłuje się z parametrem options tylko podczas ladowania noattek z localStorage */
         var stickerEl = document.createElement('div'),
             barEl = document.createElement('div'),
             saveBtnEl = document.createElement('button'), /* definiowanie elementów notatki tak by nie towrzyć jedne tylko ile chcemy */
@@ -105,7 +105,7 @@
                 getNoteObject(stickerEl) /* wywołanie funkcji delete czyli usuniecia notatki */
             );
 
-            document.body.removeChild(stickerEl);
+            document.body.removeChild(stickerEl); /* usuwana notatka znika od razu po kliknięciu buttona usuwania */
         };
 
         stickerEl.style.transform = noteConfig.transformCSSValue; /* przypisanie wartości aby była ta notka w losowym miesjcu */
@@ -156,21 +156,21 @@
             };
         } else { /* jeżeli localstroge jest ok */
             saveNote = function (note) {
-            localStorage.setItem(note.id, JSON.stringify(note));
+            localStorage.setItem(note.id, JSON.stringify(note)); /* zestringowanie */
             };
 
             deleteNote = function (note) { /* ładujemy wszsytkie te 3 funkcje */
                 localStorage.removeItem(note.id);
             };
 
-            loadNotes = function () {
-                for (var i = 0; i < localStorage.length; i++) {
-                    var noteObject = JSON.parse(
-                        localStorage.getItem(
+            loadNotes = function () { /* ładowanie notatki */
+                for (var i = 0; i < localStorage.length; i++) { /* sprawdzamy localStorage */
+                    var noteObject = JSON.parse( /* trzeba sprawsować po zestringowaniu */
+                        localStorage.getItem( 
                             localStorage.key(i)
                         )
                     );
-                    createNote(noteObject);
+                    createNote(noteObject); /* przywaracamy tę notatkę */
                 };
             };
             loadNotes();
@@ -186,29 +186,29 @@
 
     function clock() {
         var now = new Date();
-        var ctx = document.getElementById('canvas').getContext('2d');
-        ctx.save();
-        ctx.clearRect(0, 0, 150, 150);
-        ctx.translate(75, 75);
-        ctx.scale(0.4, 0.4);
-        ctx.rotate(-Math.PI / 2);
-        ctx.strokeStyle = 'black';
-        ctx.fillStyle = 'white';
-        ctx.lineWidth = 8;
-        ctx.lineCap = 'round';
+        var ctx = document.getElementById('canvas').getContext('2d'); /* get context - zwraca kontekt pola roboczego */
+        ctx.save(); /* zapisuje dany stan */
+        ctx.clearRect(0, 0, 150, 150); /* czyści określone piksele w dany protokącie */
+        ctx.translate(75, 75); /* usuwa położenie (75,75) na canvasie */
+        ctx.scale(0.4, 0.4); /* sklauje biezacy rysunek na mniejszy */
+        ctx.rotate(-Math.PI / 2); /* obraca rysunek o -pi/2 */
+        ctx.strokeStyle = 'black'; /* kolor linii */
+        ctx.fillStyle = 'white'; /* kolor wypełnienia */
+        ctx.lineWidth = 8; /* grubość linii */
+        ctx.lineCap = 'round'; /* rodzaj zakończenie linii */
       
-        // Hour marks
+        // wzkazówka godzin
         ctx.save();
         for (var i = 0; i < 12; i++) {
-          ctx.beginPath();
+          ctx.beginPath(); /* zaczyna nowa sciezke rysowania */
           ctx.rotate(Math.PI / 6);
-          ctx.moveTo(100, 0);
-          ctx.lineTo(120, 0);
-          ctx.stroke();
+          ctx.moveTo(100, 0); /* zacznij od 100,0  */
+          ctx.lineTo(120, 0); /* rysuj aż do 120,0 */
+          ctx.stroke(); /* ucięcie, zakonczenie */
         }
-        ctx.restore();
+        ctx.restore(); /* zwraca poprzednio zapisana ścieżkę i atrybuty */
       
-        // Minute marks
+        //wskazówka minut
         ctx.save();
         ctx.lineWidth = 5;
         for (i = 0; i < 60; i++) {
@@ -223,13 +223,13 @@
         ctx.restore();
        
         var sec = now.getSeconds();
-        var min = now.getMinutes();
+        var min = now.getMinutes(); /* pobieranie wartości godzin, minut, sekund do zmiennych */
         var hr  = now.getHours();
         hr = hr >= 12 ? hr - 12 : hr;
       
         ctx.fillStyle = 'black';
       
-        // write Hours
+        // rysowanie godzin
         ctx.save();
         ctx.rotate(hr * (Math.PI / 6) + (Math.PI / 360) * min + (Math.PI / 21600) *sec);
         ctx.lineWidth = 14;
@@ -239,7 +239,7 @@
         ctx.stroke();
         ctx.restore();
       
-        // write Minutes
+        // rysowanie minut
         ctx.save();
         ctx.rotate((Math.PI / 30) * min + (Math.PI / 1800) * sec);
         ctx.lineWidth = 10;
@@ -249,7 +249,7 @@
         ctx.stroke();
         ctx.restore();
        
-        // Write seconds
+        // rysowanie sekund
         ctx.save();
         ctx.rotate(sec * Math.PI / 30);
         ctx.strokeStyle = '#D40000';

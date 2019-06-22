@@ -56,8 +56,8 @@ body {
 }
 
 .deleteButton {
-    background: #ffffff;
-    right: 5px;
+    background-color: #10856d;
+    right: 2px;
     border-radius:  50%;
 }
 
@@ -69,8 +69,8 @@ body {
 }
 
 .saveButton {
-    background-color: #ffffff;
-    left: 5px;
+    background-color: #10856d;
+    left: 2px;
     border-radius: 20%;
 }
 
