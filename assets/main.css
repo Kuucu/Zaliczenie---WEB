@@ -50,7 +50,7 @@ body {
     top: 2px;
     height: 15px;
     width: 15px;
-    cursor: pointer;
+    cursor: pointer; /* zmiana kursora */
     text-align: center;
     padding: 0 0px 0px 0px;
 }
@@ -70,15 +70,14 @@ body {
 
 .saveButton {
     background-color: #ffffff;
-    color: #000000;
     left: 5px;
     border-radius: 20%;
 }
 
 .saveButton:hover {
     color: #ffffff !important;
-    background: #575757;
-    border-color: #575757 !important;
+    background: #505050;
+    border-color: #505050 !important;
     transition: all 0.5s ease 0s;
 }
 

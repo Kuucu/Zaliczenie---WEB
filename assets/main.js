@@ -112,12 +112,10 @@
         stickerEl.id = noteConfig.id;
         textareaEl.value = noteConfig.content;
 
-        saveBtnEl.innerText = 'S';
         saveBtnEl.classList.add('saveButton'); /* dodawanie klasy do elementu utworzonego przez  funkcje create element */
         saveBtnEl.addEventListener('click', onSave, false);
 
-        deleteBtnEl.innerText = 'X';
-        deleteBtnEl.classList.add('deleteButton');
+        deleteBtnEl.classList.add('deleteButton'); /* dodanie klasy do button'u */
         deleteBtnEl.addEventListener('click', onDelete, false);
 
         barEl.classList.add('bar');
