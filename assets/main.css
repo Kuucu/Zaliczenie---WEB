@@ -11,10 +11,10 @@ body {
     left: 0;
     top: 0;
     border: 1px solid #34b399;
-    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.5); /* półprzeźroczysty czarny */
 }
   
-.sticker .bar {
+.sticker .bar { /* przeciąganie notatek BAR */
     position: absolute;
     top: 0;
     left: 0;
@@ -26,19 +26,21 @@ body {
 .sticker textarea {
     padding: 3px 10px;
     box-sizing: border-box;
-    min-height: 100px;
-    min-width: 100px;
-    background: transparent;
+    min-height: 150px;
+    min-width: 150px;
+    background: transparent; /* półprzeźroczysty */
     border: none;
+    resize: both;
+    overflow: auto; /* rozszerzanie textarea */
 }
   
 .sticker .bar:hover {
-    cursor: move;
-    background: #4bd0b5;
+    cursor: move; /* kursor przesuwanie */
+    background: #4bd0b5; /* podswietla się lekko po najechaniu */
 }
   
 .sticker:hover {
-    z-index: 1;
+    z-index: 1; /* element na który jesteśmy myszką wędruje na samą górę */
 }
 
 .deleteButton,
@@ -49,18 +51,35 @@ body {
     height: 15px;
     width: 15px;
     cursor: pointer;
+    text-align: center;
+    padding: 0 0px 0px 0px;
 }
 
 .deleteButton {
-    background: #ff0000;
+    background: #ffffff;
     right: 5px;
     border-radius:  50%;
 }
 
+.deleteButton:hover {
+    color: #ffffff !important;
+    background: #fc0000;
+    border-color: #fc0000 !important;
+    transition: all 0.5s ease 0s;
+}
+
 .saveButton {
-    background-color: #575757;
+    background-color: #ffffff;
+    color: #000000;
     left: 5px;
     border-radius: 20%;
+}
+
+.saveButton:hover {
+    color: #ffffff !important;
+    background: #575757;
+    border-color: #575757 !important;
+    transition: all 0.5s ease 0s;
 }
 
 .addNoteBtn {
@@ -74,16 +93,93 @@ body {
 	color:#ffffff;
 	font-family:Arial;
 	font-size:17px;
-	padding: auto;
+	padding: 5px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #34b39a;
 }
 
 .addNoteBtn:hover {
-	background-color:#34b39a;
+    background-color:#34b39a;
+    transition: all 0.5s ease 0s;
+    text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
 }
 
 .addNoteBtn:active {
-	position:relative;
+    position:relative;
 	top:1px;
+}
+
+.footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    text-align: center;
+}
+
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+.fa-youtube {
+    background: #bb0000;
+    color: white;
+}
+  
+.fa-instagram {
+    background: #125688;
+    color: white;
+}
+
+#canvas{
+    float: right;
+}
+
+[class*="col-"] {
+    width: 100%;
+}
+  
+@media only screen and (min-width: 600px) {
+    .col-s-1 {width: 8.33%;}
+    .col-s-2 {width: 16.66%;}
+    .col-s-3 {width: 25%;}
+    .col-s-4 {width: 33.33%;}
+    .col-s-5 {width: 41.66%;}
+    .col-s-6 {width: 50%;}
+    .col-s-7 {width: 58.33%;}
+    .col-s-8 {width: 66.66%;}
+    .col-s-9 {width: 75%;}
+    .col-s-10 {width: 83.33%;}
+    .col-s-11 {width: 91.66%;}
+    .col-s-12 {width: 100%;}
+}
+
+@media only screen and (min-width: 768px) {
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
 }
