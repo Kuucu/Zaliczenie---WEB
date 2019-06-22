@@ -104,11 +104,11 @@ body {
 }
 
 .addNoteBtn:active {
-    position:relative;
-	top:1px;
+    position: relative;
+	top: 1px;
 }
 
-.footer .copy {
+.footer{
     position: absolute;
     right: 0;
     bottom: 0;
