@@ -185,7 +185,7 @@
     init();
 
     function clock() {
-        var now = new Date();
+        var now = new Date(); /* zapisanie daty i godizny do zmienniej now */
         var ctx = document.getElementById('canvas').getContext('2d'); /* get context - zwraca kontekt pola roboczego */
         ctx.save(); /* zapisuje dany stan */
         ctx.clearRect(0, 0, 150, 150); /* czyści określone piksele w dany protokącie */
@@ -260,7 +260,7 @@
         ctx.lineTo(83, 0);
         ctx.stroke();
         ctx.beginPath();
-        ctx.arc(0, 0, 10, 0, Math.PI * 2, true);
+        ctx.arc(0, 0, 10, 0, Math.PI * 2, true); /* okrąg o danych parametrach */
         ctx.fill();
         ctx.beginPath();
         ctx.arc(95, 0, 10, 0, Math.PI * 2, true);
@@ -278,7 +278,9 @@
       
         ctx.restore();
       
-        window.requestAnimationFrame(clock);
+        window.requestAnimationFrame(clock); /* Metoda Window.requestAnimationFrame() informuje przeglądarkę o zamiarze wykonania animacji
+            i żąda od przeglądarki wywołania określonej funkcji w celu odświeżenia animacji przed następnym odmalowaniem. 
+            Argumentem metody jest funkcja (callback) do wywołania przed następnym odmalowaniem (odświeżeniem kanwy). */
       }
 
       window.requestAnimationFrame(clock);
